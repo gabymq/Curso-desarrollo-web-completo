@@ -1,0 +1,13 @@
+#forma
+{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	position: relative;
+	top: 100px;
+	left: 200px;
+}
+.bold
+{
+	font-weight= bold;
+}

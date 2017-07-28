@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Comprueba tuss reflejos!</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	</head>
+	<body>
+		<h1>Comprueba tus reflejos</h1>
+		<h2>Haz click en los circulos y cuadrados tan rapido como puedas!!!</h2>
+
+		<p class="bold">Tiempo de reaccion: <span id="tiempoReaccion"></span></p>
+
+		<div id="forma"></div>
+
+		<script type="text/javascript" src="scripts/script.js"></script>
+
+
+	</body>
+</html>
+
+
+<!--
+<body>
+		<h1>Cuantos dedos tienes?</h1>
+	
+		<p>
+			<select id="numeroDedos">
+				<option>0</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+		<button id="adivinaBoton">!Adivina!</button>
+		</p>
+
+	<script type="text/javascript">
+		function hacerIntento(numeroCorrecto)
+		{
+			var numeroMaquina = Math.random();
+			numeroMaquina = numeroMaquina * 6;
+			numeroMaquina = Math.floor(numeroMaquina);
+			if (numeroMaquina == numeroCorrecto) 
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		document.getElementById("adivinaBoton").onclick = function()
+		{
+			var miNumero = document.getElementById("numeroDedos").value;
+			var aciertoMaquina = false; // Variable tipo booleana o logica (true o false)
+			var numeroIntentos = 1;
+
+			while (aciertoMaquina == false)
+				{
+					
+					if (hacerIntento(miNumero) == true)
+					 {
+					 	aciertoMaquina = true; //condicion para salir del bucle
+					 	alert("Acerte! El numero era "+miNumero+". Me ha costado "+numeroIntentos+"intentos.");
+					 }
+					 else
+					 {
+					 	numeroIntentos = numeroIntentos+1; //numeroIntentos++
+					 }
+				} 
+		}
+		
+		
+		
+		</script>
+<body>
+	
+		
+		<script type="text/javascript">
+			function suma(x,y)
+			{
+				return (x+y);
+			}
+			function saluda()
+			{
+				alert("Buenos dias");
+			}
+			saluda();
+			
+
+		</script>
+
+<script type="text/javascript">
+			function suma(x,y)
+			{
+				return (x+y);
+			}
+			var a=4;
+			var b=3;
+			var total=suma(a,b);
+			alert(total);
+		
+
+		</script>
+ejemplo 3
+
+<h1>Cuantos dedos tienes?</h1>
+	
+	<p>
+		<select id="numeroDedos">
+			<option>0</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+	<button id="adivinaBoton">!Adivina!</button>
+	</p>
+
+	<script type="text/javascript">
+		document.getElementById("adivinaBoton").onclick = function()
+		{
+			var miNumero = document.getElementById("numeroDedos").value;
+			var aciertoMaquina = false; // Variable tipo booleana o logica (true o false)
+			var numeroIntentos = 1;
+
+			while (aciertoMaquina == false)
+				{
+					var numeroMaquina = Math.random();
+					numeroMaquina = numeroMaquina * 6;
+					numeroMaquina = Math.floor(numeroMaquina);
+					if (numeroMaquina == miNumero)
+					 {
+					 	aciertoMaquina = true; //condicion para salir del bucle
+					 	alert("Acerte! El numero era "+numeroMaquina+". Me ha costado "+numeroIntentos+"intentos.");
+					 }
+					 else
+					 {
+					 	numeroIntentos = numeroIntentos+1; //numeroIntentos++
+					 }
+				} 
+		}
+
+Un ejemplo con while para que no se meta en un circulo infinito
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bucles while</title>
+
+</head>
+<body>
+	<h1>Cuantos dedos tienes?</h1>
+	
+	<p>
+		<select id="numeroDedos">
+			<option>0</option>
+			<option>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+		</select>
+	<button id="adivinaBoton">!Adivina!</button>
+	</p>
+
+	<script type="text/javascript">
+		document.getElementById("adivinaBoton").onclick = function()
+		{
+			var miNumero = document.getElementById("numeroDedos").value;
+			var aciertoMaquina = false; // Variable tipo booleana o logica (true o false)
+			var numeroIntentos = 1;
+
+			while (aciertoMaquina == false)
+				{
+					var numeroMaquina = Math.random();
+					numeroMaquina = numeroMaquina * 6;
+					numeroMaquina = Math.floor(numeroMaquina);
+					if (numeroMaquina == miNumero)
+					 {
+					 	aciertoMaquina = true; //condicion para salir del bucle
+					 	alert("Acerte! El numero era "+numeroMaquina+". Me ha costado "+numeroIntentos+"intentos.");
+					 }
+					 else
+					 {
+					 	numeroIntentos = numeroIntentos+1; //numeroIntentos++
+					 }
+				} 
+		}
+		
+
+
+	</script>
+	
+	
+	
+		
+	
+
+</body>
+</html>
+
+otro ejemplo de while
+<h1>Cuantos dedos tienes?</h1>
+	<input type="text" id="numeroDedos">
+	<button id="adivinaBoton">!Adivina!</button>
+
+	<script type="text/javascript">
+		document.getElementById("adivinaBoton").onclick = function()
+		{
+			var miNumero = document.getElementById("numeroDedos").value;
+			var aciertoMaquina = false; // Variable tipo booleana o logica (true o false)
+			var numeroIntentos = 1;
+
+			while (aciertoMaquina == false)
+				{
+					var numeroMaquina = Math.random();
+					numeroMaquina = numeroMaquina * 6;
+					numeroMaquina = Math.floor(numeroMaquina);
+					if (numeroMaquina == miNumero)
+					 {
+					 	aciertoMaquina = true; //condicion para salir del bucle
+					 	alert("Acerte! El numero era "+numeroMaquina+". Me ha costado "+numeroIntentos+"intentos.");
+					 }
+					 else
+					 {
+					 	numeroIntentos = numeroIntentos+1; //numeroIntentos++
+					 }
+				} 
+		}
+		
+
+
+	</script>
+
+Primer ejemplo de while
+<script type="text/javascript">
+		var n=1;
+		while (n<=5)
+		{
+			alert(n);
+			n++;
+		}
+		alert("Fin del while. n vale "+n);
+		
+	</script>
+
+ un ejemplo mas complicado
+<div id="twwetsDiv">
+		
+	</div>
+	<script type="text/javascript">
+		var twwets =["Hola a todos ", "Me encanta el cafe ", "Buenas Noches"];
+		var cadenaTwwets="";
+
+		for (var i=twwets.length-1; i>=0; i--)
+			{
+					// Bloque de instrucciones
+				cadenaTwwets = cadenaTwwets + "<p>" + twwets[i] + "</p>";
+			}
+		document.getElementById("twwetsDiv").innerHTML = cadenaTwwets;
+	</script>
+
+un ejemplo complicdo
+<div id="twwetsDiv">
+		
+	</div>
+	<script type="text/javascript">
+		var twwets =["Hola a todos ", "Me encanta el cafe ", "Buenas Noches"];
+		var cadenaTwwets="";
+
+		for (var i=0; i<twwets.length;  i++)
+			{
+					// Bloque de instrucciones
+				cadenaTwwets = cadenaTwwets + "<p>" + twwets[i] + "</p>";
+			}
+		document.getElementById("twwetsDiv").innerHTML = cadenaTwwets;
+	</script>
+
+otro ejemplo
+<script type="text/javascript">
+		var twwets=["Hola a todos", "Me encanta el cafe", "Buenas Noches"];
+		for (var i=0; i<=2;  i++)
+			{
+					// Bloque de instrucciones
+				alert(twwets[i]);
+			}
+		
+	</script>
+
+un ejemplo mas
+
+<script type="text/javascript">
+		for (var i=5; i>=1;  i=i-2)
+			{
+					// Bloque de instrucciones
+				alert(i);
+			}
+		alert("Fin del for");
+	</script>
+<h1>Cuantos dedos tengo?</h1>
+	<input type="text" id="numero" placeholder="Numero">
+	<button id="compruebaNumero">Comprueba</button>
+	
+	<script type="text/javascript">
+	document.getElementById("compruebaNumero").onclick = function()
+	{
+
+		var numeroAleatorio = Math.random()*6;
+		//Numero entre 0 y 5.9999999
+		numeroAleatorio = Math.floor(numeroAleatorio);
+		//Me quedo con un numero entre 0 y 5
+		var numeroUsusario = document.getElementById("numero").value;
+		if (numeroUsusario == numeroAleatorio )
+			{
+
+				alert("Acertaste!!! Enhorabuena!!");
+
+			}
+		else 
+			{
+				alert("Mala suerte! El numero era "+numeroAleatorio);
+			}
+	}
+
+<h1>Dime la palabra magica</h1>
+	<input type="text" id="entradaUsuario" placeholder="Palabra Magica">
+	<button id="miBoton">Comprueba</button>
+	<script type="text/javascript">
+		document.getElementById("miBoton").onclick = function()
+		{
+			var palabraMagica="abracadabra";
+			var textoUsuario;
+			textoUsuario = document.getElementById("entradaUsuario").value;
+			if(textoUsuario == palabraMagica)
+			{
+				alert("En hora buena!!! Has acertado la palabra");
+			}else{
+				alert("lo siento esa noe es la palabra vuelve a intentarlo");
+			}
+		}
+
+	</script>
+
+	var miArray = new Array();
+		miArray[0] = "rojo";
+		miArray[1] = "amarillo";
+		alert(miArray[1]);
+
+
+	var tweets = ["Buenos Dias!","Me encanta el cafe"];
+		tweets.push("vuelta al trabajo");
+		tweets.splice(1,0,"Hola a todos!");
+		alert(tweets[1]);
+		alert(tweets[2]);
+		console.log(tweets);
+		var hora=15;
+		var saludo="";
+		/*if (hora <13) 
+		{
+			saludo="Buenos dias";
+		}else if (hora<20) 
+		{
+			saludo="Buenas Tardes";
+		}
+		else
+		{
+			saludo="Buenas Noches";
+		}
+		alert(saludo);*/
+
+Tercer practica de funcionalidad y comportamiento de js con variables
+
+<input id="entradaUsuario" type="text" placeholder="Usuario">
+	<p id="texto">Inicia Sesion</p>
+	<button id="mostrarMensaje">Login</button>
+	<script type="text/javascript">
+		document.getElementById("mostrarMensaje").onclick = function()
+		{
+			var entradaTexto= "";
+			entradaTexto = document.getElementById("entradaUsuario").value;
+			document.getElementById("texto").innerHTML ="Bienvenido " +entradaTexto;
+		}
+		
+	</script>
+
+segunda practica circulos con estilo
+
+<style type="text/css">
+
+		.circulo
+		{
+			width: 150px;
+			height: 150px;
+			float: left;
+			margin-right: 50px;
+			border-radius: 50%;
+		}
+		#circulo-rojo
+		{
+			background-color: red;
+
+		}
+			#circulo-amarillo
+		{
+			background-color: yellow;
+			
+		}
+			#circulo-azul
+		{
+			background-color: blue;
+			
+		}
+
+		
+	
+		
+	</style>
+
+	<body>
+	<div id="circulo-rojo" class="circulo"></div>
+	<div id="circulo-amarillo" class="circulo"></div>
+	<div id="circulo-azul" class="circulo"></div>
+	
+	<script type="text/javascript">
+		document.getElementById("circulo-rojo").onclick = function()
+		{
+			document.getElementById("circulo-rojo").style.display = "none";
+		}
+		document.getElementById("circulo-amarillo").onclick = function()
+		{
+			document.getElementById("circulo-amarillo").style.display = "none";
+		}
+		document.getElementById("circulo-azul").onclick = function()
+		{
+			document.getElementById("circulo-azul").style.display = "none";
+		}
+		
+		
+	</script>
+		-->
+<!-- primer practica de como funciona la logica de js
+
+
+
+<script type="text/javascript">
+		document.getElementById("miBoton").onclick = function(){
+			//esta funcion modifica el texto de la etiqueta p 
+			document.getElementById("texto").innerHTML = "Hola Gaby Moreno!";
+		}
+		document.getElementById("segundoBoton").onclick = function(){
+			//esta funcion modifica el texto de la etiqueta p 
+			document.getElementById("segundoparrafo").innerHTML = 
+		    document.getElementById("segundoparrafo").innerHTML + " Increible!!!";
+		}   
+		document.getElementById("crearParrafo").onclick = function(){
+			//esta funcion modifica el texto de la etiqueta p 
+			document.getElementById("parrafoVacio").innerHTML = "<h1>Bienvenido al maravilloso mundo de JavaScript</h1>";
+		} 
+		document.getElementById("botonModificarEstilo").onclick = 
+		function(){
+			document.getElementById("parrafoConEstilo").style.display = "none";
+			//el atributo display borra el texto
+			/*document.getElementById("parrafoConEstilo").style.fontSize = "50px";
+			document.getElementById("parrafoConEstilo").style.fontWeight = "900";
+			*/
+
+		}  
+	</script>
+-->
+
+<!--button onclick="alert('Hola desde JavaScript!!!')">Haz clic aqui y seras feliz!!!</button>-->
