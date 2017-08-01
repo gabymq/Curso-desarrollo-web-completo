@@ -4,7 +4,7 @@
     if (array_key_exists('ciudad',$_GET))
     {
         $ciudad = str_replace(' ', '', $_GET['ciudad']);
-        $file = 'http://es.weather-forecast.com/locations/".$ciudad."/forecasts/latest';
+        $file = 'http://es.weather-forecast.com/locations/'.$ciudad.'S/forecasts/latest';
         $file_headers = @get_headers($file);
         if($file_headers[0] == 'HTTP/1.1 404 Not Found') {
             $error = "No hemos podido encontrar esa ciudad";
