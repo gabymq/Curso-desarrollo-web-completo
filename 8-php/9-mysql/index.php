@@ -94,7 +94,7 @@
             }
         }
     
-
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,33 +105,99 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style type="text/css">
+
+        .container
+        {
+            text-align:center;
+            width:400px;
+            margin-top:150px;
+        }
+        html { 
+        background: url(background.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;    
+        -o-background-size: cover;
+        background-size: cover;
+        }
+        body
+        {
+            background: none;
+            color: #FFFFFF;
+
+        }
+        #formularioLogin{
+            display: none;
+        }
+        .alternarFormularios
+        {
+            font-wieght:bold;
+        }
+    </style>
   </head>
   <body>
+    <div class="container">
     <h1>Diario Secreto</h1>
     <div id="error">
     <?php echo $error; ?>
     </div>
 
 
-    <form method="POST">
-    <input type="email" name="email" placeholder="Tu email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="checkbox" name="permanecerIniciada" value=1>
-    <input type="hidden" name="registro" value=1>
-    <input type="submit" name="submit" value="Registrate">
+    <form method="POST" id="formularioRegistro">
+    <p>Estas interesad@ Registrate!!!</p>
+        <fieldset class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Tu email">
+        </fieldset>
+        <fieldset class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </fieldset>
+        <div class="checkbox">
+        <label>
+            <input  type="checkbox" name="permanecerIniciada" value=1>Permanecer Iniciada
+        </label>
+        </div>
 
+        <fieldset class="form-group">
+            <input class="form-control" type="hidden" name="registro" value=1>
+            <input  class="btn btn-success" type="submit" name="submit" value="Registrate">
+        </fieldset> 
+        <p><a class="alternarFormularios">Iniciar sesion</a></p>
     </form>
-    <form method="POST">
-    <input type="email" name="email" placeholder="Tu email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="checkbox" name="permanecerIniciada" value=1>
-    <input type="hidden" name="registro" value=0>
-    <input type="submit" name="submit" value="Inicia Sesion">
+
+    <form method="POST" id="formularioLogin">
+        <p>Inicia sesion con usuario/password</p>
+        <fieldset class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Tu email">
+        </fieldset> 
+        <fieldset class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </fieldset> 
+        <fieldset class="form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="permanecerIniciada" value=1>Permanecer Iniciada
+            </label>
+        </div>
+        <fieldset class="form-group">
+        <p>Inicia sesion con tu usuario/password</p>
+            <input class="form-control" type="hidden" name="registro" value=0>
+            <input class="btn btn-success" type="submit" name="submit" value="Inicia Sesion">
+        </fieldset> 
+        <p><a href="registrate" class="alternarFormularios">Registrate</a></p>
     </form>
+    </div>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="application/javascript">
+        $(".alternarFormularios").cilck(function(){
+            $("#formularioRegistro").toggle();
+            $("#formularioLogin").toggle();
+
+        });
+    
   </body>
 </html>
