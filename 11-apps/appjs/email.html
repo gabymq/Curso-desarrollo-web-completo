@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cliente de Email</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="http:cdn.kik.com/app/3.0.0/app.min.css" href="https:libs/jquery/3.2.1/jquery.min.js">
+    <style>
+     
+			@-webkit-keyframes pulse {
+				0% {
+					background-color: #CCC;
+				}
+				25% {
+					background-color: #EEE;
+				}
+				50% {
+					background-color: #CCC;
+				}
+				75% {
+					background-color: #EEE;
+				}
+				100% {
+					background-color: #CCC;
+				}
+			}
+			.scroll-page .loading {
+				margin: 12px auto;
+				border: 8px solid #AAA;
+				height: 16px;
+				width: 16px;
+				background: #CCC;
+				border-radius: 16px;
+				webkit-animation: pulse 2s ease-in-out 0s infinite;
+			}
+    </style>
+  </head>
+
+  <body>
+    <div class="app-page" data-page="home">
+      <div class="app-topbar blue">
+        <div class="app-title">Enviar un Email</div>
+      </div>
+      <div class="app-content">
+        <p class="app-section">
+					Click abajo para enviar un email
+        </p>
+       
+				<div class="app-section" id="listaContactos">
+					
+				</div>
+					<div class="app-section">
+					
+					<div class="app-button" id="nuevoUsuario">Enviar a un nuevo usuario</div>
+					
+				</div>
+
+      </div>
+    </div>
+	<div class="app-page" data-page="enviarEmail">
+			<div class="app-topbar blue">
+				<div class="app-title">Enviar Email</div>
+				<div class="right app-button" data-back>Hecho</div>
+			</div>
+
+			<div class="app-content">
+				
+				<div class="app-section">
+					<div class="app-section" id="mensajeRespuesta"></div>
+					De: <input class="app-input" name="emisor" placeholder="Emisor" id="emisor">
+				</div>
+				<div class="app-section">
+					Para: <input class="app-input" name="receptor" placeholder="Receptor" id="receptor">
+					</div>
+
+				<form class="app-section">
+					<input class="app-input" name="asunto" placeholder="Asunto">
+					<textarea class="app-input" name="mensaje" placeholder="Mensaje"></textarea>
+					<div class="app-button green app-submit" id="botonEnviar">Enviar</div>
+				</form>
+			</div>
+		</div>
+    
+
+
+    <script src="http:zeptojs.com/zepto.min.js"></script>
+    <script src="http:cdn.kik.com/app/3.0.0/app.min.js"></script>
+    <script>
+    
+
+
+			App.controller('home', function (page) {
+				if (typeof localStorage !== "undefined"){
+					$(page).find("#nuevoUsuario").clickable().click(function(){
+						if(localStorage.getItem("listaReceptores") !== null){
+							 localStorage.removeItem("receptor");
+						}
+						App.load("enviarEmail");
+					})
+					if(localStorage.getItem("listaReceptores") !==null )
+					{
+						var listaReceptores =JSON.parse(localStorage.getItem("lsitaReceptores"));
+						$.each(listaReceptores,function(indice,valor){
+							$(page).find("#listaContactos").append('<div class="app-button redireccion">'+valor+'</div>');
+							
+						});
+						$(page).find("#listaContactos").show();
+						$(page).find(".redireccion").clickable().on("click",function(){
+							localStorage.setItem("receptor",$(this).html());
+								App.load('enviarEmail');
+						});
+					}
+					else
+					{
+						$(page).find("#listaContactos").hide();
+					}
+			}	
+			});
+			App.controller('enviarEmail', function (page) {
+				if (typeof localStorage !== 'undefined'){
+					if(localStorage.getItem("emisor")!==null)
+					{
+						$(page).find("#emisor").val(localStorage.getItem("emisor"));
+					}
+				}
+				if (typeof localStorage !== 'undefined'){
+					if(localStorage.getItem("receptor")!==null)
+					{
+						$(page).find("#receptor").val(localStorage.getItem("receptor"));
+					}
+				}
+				$(page).find('#botonEnviar').clickable().on('click',function(){
+					$.ajax({
+						type: 'GET',
+						url:'http://www.curso_completo/11-apps/enviarEmail.php?callback=respuesta',
+						data:{to:$("#receptor").val(),from:$("#emisor").val(), subject:$("#asunto").val(),content:$("#mensaje").val()},
+						dataType:'jsonp',
+						timeout:300,
+						context:$('body'),
+						success: function(data){
+							if (data.success==true){
+								$(page).find("#mensajeRespuesta").html("Hubo un error al enviar el mensaje!").show();
+							}
+							else
+							{
+								$(page).find("#mensajeRespuesta").html("Hubo un error al enviar el mensaje!").show();
+
+							}
+						},
+							error: function(xhr,type){
+								alert('Ajax error!')
+							}
+						})
+					//alert("Haz hecho click");
+					if (typeof localStorage !== 'undefined')
+					{
+						localStorage.setItem("emisor",$("#emisor").val());
+						var listaReceptores = new Array();
+						if (localStorage.getItem("listaReceptores")!==null)
+						{
+							listaReceptores=JSON.parse(localStorage.getItem("listaReceptores"));
+						}
+						if ($.inArray($("#receptor").val(),listaReceptores)==-1)
+						{
+							listaReceptores.push($("#receptor").val());
+							listaReceptores.sort();
+							localStorage.setItem("listaReceptores",JSON.stringify(listaReceptores));
+							console.log(listaReceptores);
+						}
+					}
+					else
+					{
+						//acutilzar navegador
+					}
+				});
+
+				
+			});
+
+			
+
+
+
+      try {
+        App.restore();
+      } catch (err) {
+        App.load('home');
+      }
+    </script>
+  </body>
+</html>
