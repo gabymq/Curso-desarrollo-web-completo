@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Disposiciones y calculos</title>
+
+    <style>
+        #multi-columnas{
+            -webkit-column-count: 3;
+            -moz-column-count:3;
+            column-count: 3;
+
+            -webkit-column-gap: 40px;
+            -moz-column-gap: 40px;
+            column-gap: 40px;
+
+            -webkit-column-rule-style: solid;
+            -moz-column-rule-style: solid;
+            column-rule-style:solid;
+
+            -webkit-column-rule-width: 1px;
+            -moz-column-rule-width: 1px;
+            column-rule-width: 1px;
+
+            -webkit-column-rule-color: grey;
+            -moz-column-rule-color: grey;
+            column-rule-color: grey;
+            }
+            h1{
+                column-span:all;
+            }
+            header{
+                width: 100%;
+                height: 50px;
+                background-color: gray;
+            }
+            body {
+                margin: 0;
+            }
+            #contenedor {
+                width: 100%;
+                background-color: yellow;
+                height: -web-kit-calc(100% - 50px);
+                height: calc(100% - 50px);
+                position:absolute;
+            }
+            .flexbox-contenedor {
+                display: flex;
+                display: -webkit-flex;
+                width: 100%;
+                height: 500px;
+                background-color: aqua;
+                -webkit-flex-wrap:wrap;
+                flex-wrap:wrap;
+                -webkit-flex-direction: column;
+                flex-direction: column;
+            }
+            .flexbox-items {
+                background-color: bisque;
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                box-sizing: border-box;
+            }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div id="contenedor">
+        <div class="flexbox-contenedor">
+                <div class="flexbox-items">
+                    Item 1
+                </div>
+                <div class="flexbox-items" style="border:5px solid grey; padding:10px">
+                    Item 2
+                </div>
+                <div class="flexbox-items">
+                    Item 3
+                </div>
+                <div class="flexbox-items">
+                    Item 4
+                </div>
+                <div class="flexbox-items">
+                    Item 5
+                </div>
+                <div class="flexbox-items">
+                    Item 6
+                </div>
+                <div class="flexbox-items">
+                    Item 7
+                </div>
+        </div>
+    </div>
+    <div id="multi-columnas">
+        <h1>Noticias para geeks</h1>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec justo ullamcorper, rhoncus elit ac, consequat tellus. 
+        Nulla luctus at turpis in sodales. Aliquam vehicula id mi eu malesuada. Nulla facilisi. 
+        Aliquam erat volutpat. Morbi ut ultrices tortor. Donec porttitor est mauris, in pretium neque pulvinar non. 
+        Vestibulum suscipit eros id mauris scelerisque rutrum. Quisque nibh erat, vulputate ut blandit nec, 
+        ullamcorper in mauris. Duis egestas lorem sed eros gravida, nec fringilla nunc ultrices. 
+        Etiam pellentesque diam semper leo euismod, nec scelerisque sapien imperdiet. Proin ultrices quam ipsum, consectetur condimentum velit finibus at. 
+        Ut ante sapien, tincidunt sit amet eros in, aliquet iaculis ex. Sed eu blandit nisl. 
+        Aliquam eu finibus massa, in fringilla <br><br>
+            
+        Suspendisse consequat lobortis consequat. Morbi pretium justo quis odio pulvinar sagittis. 
+        Aliquam porta, nisi nec venenatis malesuada, risus leo tempor elit, non elementum nisi ipsum ut purus. 
+        Duis malesuada tempus felis id tristique. Sed eget dolor quis lorem volutpat ornare eu a tortor. 
+        Nullam fringilla luctus elit, ac viverra augue vulputate et. Cras in lectus ac nibh facilisis egestas. 
+        Mauris sagittis aliquam viverra. Vivamus et mattis felis. Pellentesque eu facilisis eros, in efficitur massa.<br><br>
+            
+        Cras vel ipsum interdum, sagittis dolor ac, placerat arcu. Aenean a velit odio. 
+        Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Praesent commodo ultrices sem in accumsan. Nulla aliquet pretium odio molestie mattis. 
+        Donec sed turpis sed dolor luctus semper sit amet nec neque. Nullam sit amet nisl 
+        sit amet nisl vestibulum pharetra quis euismod turpis.
+        Vivamus tristique urna elit, at hendrerit arcu porttitor suscipit. 
+        Proin auctor blandit ipsum ut blandit. Ut vel dignissim ligula.<br><br>
+            
+        Morbi sapien elit, ornare sed imperdiet ut, sodales nec ex. 
+        Phasellus vitae orci maximus, eleifend erat ac, viverra ex. 
+        Nullam ultrices dolor nec eros volutpat, in iaculis dui fermentum. Vivamus mollis risus nec ante placerat, 
+        vitae viverra nisl egestas. Nunc eu ligula sed mi ornare finibus in et ligula. Quisque posuere metus lorem, 
+        vel rutrum tellus pellentesque eget. Nunc tortor libero, interdum eu venenatis vitae, elementum quis mauris.
+        Nullam nec laoreet dui. Morbi luctus enim eu nulla commodo, sit amet lacinia quam auctor. Nulla sapien orci, 
+        semper at ipsum in, posuere iaculis ex. Sed iaculis, nisi nec faucibus consequat, tellus odio volutpat sem, 
+        vel aliquet tellus nisl vel nunc. Ut vel odio sed ante lacinia vehicula.<br><br>
+        
+        Sed sagittis velit sem, a fringilla purus faucibus quis. Nullam porttitor mauris sit amet ultrices faucibus. 
+        Cras sed enim congue, viverra ligula quis, aliquam diam. In sed rhoncus nulla.
+        Proin eleifend nunc et turpis placerat, quis hendrerit ex porttitor. Cras sed lacinia metus, vitae maximus erat. 
+        Morbi id orci nec eros commodo pharetra quis sit amet.</div>
+</body>
+</html>
