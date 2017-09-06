@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reloj</title>
+</head>
+<body>
+    <canvas id="reloj" width="500" height="500">
+        Por favor, actualiza el navegador
+
+    </canvas>    
+    
+</body>
+<script>
+    function mostrarHora(){
+        var canvas= document.getElementById("reloj");
+        var context= canvas.getContext("2d");
+        var radioReloj= canvas.width/2;
+
+        //dibujar esffera
+        context.beginPath();
+        context.fillStyle="black";
+        context.arc(radioReloj, radioReloj, radioReloj,0,2*Math.PI);
+        context.fill(); //rellenar el circulo
+
+        context.beginPath();
+        context.fillStyle="white";
+        context.arc(radioReloj, radioReloj, 10,0,2*Math.PI);
+        context.fill(); //rellenar el circulo
+
+        context.font = radioReloj/10 +"px arial";
+        context.textAlign = "center";
+        context.textBaseline ="middle";
+        for(var i=1; i<=12; i++){
+            context.fillText(i,radioReloj+radioReloj*0.9*Math.sin(i*2*Math.PI/12),radioReloj-(radioReloj*0.9*Math.cos(i*2*Math.PI/12)));
+
+        }
+        var horas = new Date().getHours();
+        var minutos = new Date().getMinutes();
+        var segundos = new Date().getSeconds();
+
+        var horaDetallada = horas%12 + minutos/60+segundos/3600;
+        
+        var anguloHoras = horaDetallada *2 *Math.PI/12;
+        var anguloMinutos = minutos*2*Math.PI/60;
+        var anguloSegundos = segundos*2*Math.PI/60;
+
+        //Horas
+        context.strokeStyle ="white";
+        context.moveTo(radioReloj,radioReloj);
+        context.lineTo(radioReloj+radioReloj*0.6*Math.sin(anguloHoras),radioReloj-(radioReloj*0.6*Math.cos(anguloHoras)));
+        context.lineWidth= 5;
+        context.stroke();
+
+        //Minutos
+        context.strokeStyle ="white";
+        context.moveTo(radioReloj,radioReloj);
+        context.lineTo(radioReloj+radioReloj*0.8*Math.sin(anguloMinutos),radioReloj-(radioReloj*0.6*Math.cos(anguloMinutos)));
+        context.lineWidth= 3;
+        context.stroke();
+        //Segundos
+        context.strokeStyle ="white";
+        context.moveTo(radioReloj,radioReloj);
+        context.lineTo(radioReloj+radioReloj*0.9*Math.sin(anguloSegundos),radioReloj-(radioReloj*0.6*Math.cos(anguloSegundos)));
+        context.lineWidth= 2;
+        context.stroke();
+
+
+
+    }
+    setInterval(mostrarHora,1000);
+    
+    </script>
+</html>
