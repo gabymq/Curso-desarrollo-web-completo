@@ -63,9 +63,8 @@
 			</div>
 
 			<div class="app-content">
-				
+				<div class="app-section" id="mensajeRespuesta"></div>
 				<div class="app-section">
-					<div class="app-section" id="mensajeRespuesta"></div>
 					De: <input class="app-input" name="emisor" placeholder="Emisor" id="emisor">
 				</div>
 				<div class="app-section">
@@ -73,8 +72,8 @@
 					</div>
 
 				<form class="app-section">
-					<input class="app-input" name="asunto" placeholder="Asunto">
-					<textarea class="app-input" name="mensaje" placeholder="Mensaje"></textarea>
+					<input class="app-input" name="asunto" placeholder="Asunto" id="asunto">
+					<textarea class="app-input" name="mensaje" placeholder="Mensaje" id="mensaje"></textarea>
 					<div class="app-button green app-submit" id="botonEnviar">Enviar</div>
 				</form>
 			</div>
@@ -116,6 +115,7 @@
 			}	
 			});
 			App.controller('enviarEmail', function (page) {
+				$(page).find("#mensajeRespuesta").hide();
 				if (typeof localStorage !== 'undefined'){
 					if(localStorage.getItem("emisor")!==null)
 					{
@@ -131,14 +131,14 @@
 				$(page).find('#botonEnviar').clickable().on('click',function(){
 					$.ajax({
 						type: 'GET',
-						url:'http://www.curso_completo/11-apps/enviarEmail.php?callback=respuesta',
+						url:'htdocs/curso_completo/11-apps/appjs/enviarEmail.php?callback=respuesta',
 						data:{to:$("#receptor").val(),from:$("#emisor").val(), subject:$("#asunto").val(),content:$("#mensaje").val()},
 						dataType:'jsonp',
 						timeout:300,
 						context:$('body'),
 						success: function(data){
 							if (data.success==true){
-								$(page).find("#mensajeRespuesta").html("Hubo un error al enviar el mensaje!").show();
+								$(page).find("#mensajeRespuesta").html("En hora buena tu email ha sido enviado correctamente!").show();
 							}
 							else
 							{
@@ -162,7 +162,7 @@
 						if ($.inArray($("#receptor").val(),listaReceptores)==-1)
 						{
 							listaReceptores.push($("#receptor").val());
-							listaReceptores.sort();
+							//listaReceptores.sort();
 							localStorage.setItem("listaReceptores",JSON.stringify(listaReceptores));
 							console.log(listaReceptores);
 						}
