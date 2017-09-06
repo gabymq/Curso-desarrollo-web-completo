@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pseudoclases</title>
+    <style>
+        a:hover {
+            color: yellow;
+
+        }
+        input:focus {
+            background-color: blue;
+        }
+        input:enable {}
+        input:disable {}
+        input:checked {}
+
+        p:last-child {
+            font-size: 200%;
+        }
+        p:first-child {
+            font-size: 50%;
+        }
+        p:first-of-type {
+            font-size: 400%;
+
+        }
+        p:only-child {
+            font-weight: bold;
+        }
+        /*last-of-type u only-of-type*/
+        tr:nth-child(2n-1) {
+            background-color: gray;
+
+        }
+        tr:nth-child(2n) {
+            background-color: pink;
+        }
+        /*nth-last-child contar hacia atras*/
+        div:empty {
+            display: none;
+
+        }
+        .green {
+            color: green;
+        }
+        p:not(.green) {
+            color:orange;
+        }
+        :not(div) {}
+        p:first-letter {
+            font-size: 250%;
+
+        }
+        /* :first-line*/
+        a:after {
+            content: "("attr(href)")";
+        }
+    </style>
+</head>
+<body>
+        <h1>Esto es un encabezado</h1>
+        <div>
+            <h3>Esto es un encabezado nivel 3</h3>
+            <p class="green">Esto es un parrafo</p>
+            <a id="blue" target="_blank" href="">Esto es un enlace</a>
+            <p>Soy otro parrafo</p>
+    </div>
+    <div> <p>Estoy fuera del elemento div</p></div>
+       
+        <a href="http://image.google.com">Soy otro enlace</a>
+        <input>
+        <table>
+            <tr><td>Jose Luis</td></tr>
+            <tr><td>Penelope</td></tr> 
+            <tr><td>Antonio</td></tr>
+            <tr><td>Pepe</td></tr>
+        </table>
+</body>
+</html>
