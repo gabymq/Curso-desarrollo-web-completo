@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Otras caracteristicas de HTML5</title>
+    <script>
+        document.createElement("contenedor");
+    </script>
+
+    <style>
+        article{
+            color:green;
+        }
+        header, fotter, article, section, nav, menu{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        Esto es un articulo
+    </article>
+    <contenedor>
+        Yo soy un conenedor!!!
+    </contenedor>
+    <figure>
+        <img id="maggie" data-description="Bebe de los Simpson" src="https://static.simpsonswiki.com/images/thumb/9/9d/Maggie_Simpson.png/250px-Maggie_Simpson.png" alt="Maggie Simpson">
+            <figcaption>Esta foto pertenece a<mark> Maggie Simpson</mark><small>(Wikipedia)</small></figcaption>
+
+    </figure>
+    <input type="range" min="0" max="100" step="10">
+    <div contenteditable="true">
+        Esto lo puedes modificar
+    </div>
+    <ul contenteditable=true>
+        <li>Objeto 1</li>
+        <li>Objeto 2</li>
+
+    </ul>
+    <script>
+        alert(document.getElementById("maggie").getAttribute("data-description"));
+    </script>
+</body>
+</html>
