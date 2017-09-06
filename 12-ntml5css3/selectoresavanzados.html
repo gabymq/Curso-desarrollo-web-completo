@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selectores CSS 3</title>
+        <style>
+            h1{
+                color:red;
+            }
+            .green{
+                color:green;
+            }
+
+            #blue{
+                font-size: 200%;
+            }
+            div p {
+                font-weight: bold;
+            }
+            h3 ~ p {
+                text-decoration: underline;
+            }
+            h3 + p{
+                font-size: 250%;
+            }
+            a[target] {
+                color: yellow;
+            }
+            a[href="http://www.google.com"]{
+                font-size: 200%;
+            }
+            <!--
+                ^= -Comienzan con una determinada cadena
+                $= -Terminan con una cadena determianda
+                -= - La cadena en cuestion esta separada entre espacios
+                |= -tiene el valor separado por'-'
+            -->
+
+        
+        
+        </style>
+</head>
+<body>
+    <h1>Esto es un encabezado</h1>
+    <div>
+        <h3>Esto es un encabezado nivel 3</h3>
+        <p class="green">Esto es un parrafo</p>
+        <a id="blue" target="_blank" href="">Esto es un enlace</a>
+        <p>Soy otro parrafo</p>
+</div>
+    <p>Estoy fuera del elemento div</p>
+    <a href="http://image.google.com">Soy otro enlace</a>
+</body>
+</html>
